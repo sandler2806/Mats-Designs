@@ -10,7 +10,7 @@ int main() {
 	do
 	{
 		cout << "welcome to the main program," << endl;
-		cout << "insert a input separated by ',' for example '3,5,&,%'" << endl;
+		cout << "insert an input separated by ',' for example '3,5,&,%'" << endl;
 		cout << "or write 'example' to see more rags" << endl;
 		cout << "write exit for shut down the program" << endl;
 		
@@ -36,7 +36,7 @@ int main() {
 				catch(const invalid_argument& e)
 				{
 					cout << e.what() << endl;
-					cout << "try a different input" << endl;
+					cout << "try a different input\n" << endl;
 				}	
 			}
 

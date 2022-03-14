@@ -10,14 +10,14 @@ namespace ariel {
         const int minChar=33;
         const int maxChar=126;
         if (a < minChar || a > maxChar || b < minChar || b > maxChar) {
-            throw invalid_argument( "char not in the range" );
+            throw invalid_argument( "\nchar not in the range" );
         }
         // check if one number is odd or negative
         if(row%2==0 || collum%2==0){
-            throw invalid_argument( "cMat size is always odd" );
+            throw invalid_argument( "\ncMat size is always odd" );
         }
         if(row<1 || collum<1){
-            throw invalid_argument( "Mat size is always positive" );
+            throw invalid_argument( "\nMat size is always positive" );
         }
         int rowLength=row;
         int collumLength=collum;
@@ -38,13 +38,16 @@ namespace ariel {
             }
             // fill the bounds of the matrix for current level
             for (int i = startIndex; i <row+startIndex ; ++i) {
-                matrix[i][startIndex]=symbol;
-                matrix[i][collumLength-startIndex-1]=symbol;
-
+                // matrix[i][startIndex]=symbol;
+                matrix.at(i).at(startIndex)=symbol;
+                // matrix[i][collumLength-startIndex-1]=symbol;
+                matrix.at(i).at(collumLength-startIndex-1)=symbol;
             }
             for (int i = startIndex; i <collum+startIndex ; ++i) {
-                matrix[startIndex][i]=symbol;
-                matrix[rowLength-startIndex-1][i]=symbol;
+                // matrix[startIndex][i]=symbol;
+                // matrix[rowLength-startIndex-1][i]=symbol;
+                matrix.at(startIndex).at(i)=symbol;
+                matrix.at(rowLength-startIndex-1).at(i)=symbol;
             }
             row-=2;
             collum-=2;
@@ -53,7 +56,7 @@ namespace ariel {
         // convert the matrix to string
         for (int i = 0; i < rowLength; ++i) {
             for (int j = 0; j < collumLength; ++j) {
-                ans+=matrix[i][j];
+                ans+=matrix.at(i).at(j);
             }
             ans+='\n';
         }
