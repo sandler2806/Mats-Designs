@@ -25,11 +25,19 @@ int main() {
 			}
 
 			else{
-				int num1=str[0]-'0';
-				int num2=str[2]-'0';
-				char a=str[4];
-				char b=str[6];
-				cout << mat(num1, num2, a,b) << endl;
+				try
+				{
+					int num1=str[0]-'0';
+					int num2=str[2]-'0';
+					char a=str[4];
+					char b=str[6];
+					cout << mat(num1, num2, a,b) << endl;
+				}
+				catch(const invalid_argument& e)
+				{
+					cout << e.what() << endl;
+					cout << "try a different input" << endl;
+				}	
 			}
 
 		}
